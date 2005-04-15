@@ -1,11 +1,11 @@
 name: Kwiki-Infobox
-version: 0.02
+version: 0.03
 abstract: slash-like infobox for kwiki
 author: Kang-min Liu (gugod@gugod.org)
 license: perl
 distribution_type: module
 requires:
-  Kwiki: 0.34
+  Kwiki: 0.38
 no_index:
   directory:
     - inc

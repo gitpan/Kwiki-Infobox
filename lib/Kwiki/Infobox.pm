@@ -31,10 +31,8 @@ idea about how to do this magically. Please discuss with me.
 
 =cut
 
-use strict;
-use warnings;
-use Kwiki::Plugin '-Base';
-our $VERSION = '0.02';
+use Kwiki::Plugin -Base;
+our $VERSION = '0.03';
 
 const class_id => 'infobox';
 const class_title => 'Kwiki Infobox';
@@ -50,7 +48,6 @@ sub register {
 sub html {
     my $content = $self->pages->current->content;
     my $html;
-    $self->hub->load_class('formatter');
     while($content =~ /{infobox:\s*(.+)\s*}/g) {
 	my $boxpage = $self->pages->new_page($1)->content;
 	$html .= "<div class=\"infobox\">".
@@ -72,7 +69,6 @@ sub right {
     my $content = $self->pages->current->content;
     my $html;
     my ($box) = $content =~ /{infobox_right:\s*(.+)\s*}/;
-    $self->hub->load_class('formatter');
     if($box) {
 	my $boxpage = $self->pages->new_page($box)->content;
 	$html .= "<div class=\"infobox\">".
